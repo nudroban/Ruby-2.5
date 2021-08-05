@@ -8,7 +8,7 @@ x = 20 / 4
 y = 20 / 2
 z = 20 - ( x + y )
 
-puts "#{x}kg"
-puts "#{y}kg"
+puts "#{x}kg ate"
+puts "#{y}kg made jam"
 puts "#{z}kg Gave to friends"
 
