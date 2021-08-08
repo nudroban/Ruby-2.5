@@ -1,5 +1,7 @@
-current_price = 1373
-percent = (30.0 / 100.0) + 1
-old_price = current_price / percent
+current_price = 2000
+percent = 50.0 / 100.0
+first_percent = 1
+old_price = current_price / (percent + first_percent)
 
 puts old_price
+
