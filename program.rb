@@ -1,9 +1,6 @@
-current_price = 2000
-variable1 = gets.to_i
-percent = 20.0 / 100.0
-first_percent = 1
-old_price = variable1 / (percent + first_percent)
-
-
+print 'Enter the current price: '
+current_price =  gets.to_i
+print 'Enter the markup precent: '
+percent = gets.to_i / 100.0
+old_price = current_price / (1 + percent)
 puts old_price
-
