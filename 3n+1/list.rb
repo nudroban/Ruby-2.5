@@ -4,7 +4,11 @@ class List
   end
 
   def apply(number)
-    @list === number ? @list[number] : add_number(number)
+    if @list.include? number
+      @list[number] 
+    else 
+      add_number(number)
+    end
   end
  
   def branch_present?(number)

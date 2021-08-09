@@ -1,9 +1,7 @@
 require_relative 'list'
 
-alist = List.new()
+list = List.new()
 
-for x in 1..10000 do
-  alist.apply(x)
-end
+for x in 1..10 { list.apply(x) }
 
-alist.show
+list.show
