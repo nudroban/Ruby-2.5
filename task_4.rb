@@ -2,6 +2,9 @@ print 'Enter the current price: '
 current_price = gets
 if current_price.to_i > 0 
   current_price = current_price.to_i
+elsif current_price.to_i <= 0
+  puts "GoodBye My Dear Friend"
+  exit
 else 
   puts "#{current_price} is not Integer"
   exit
