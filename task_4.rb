@@ -1,23 +1,34 @@
-print 'Enter the current price: '
-current_price = gets
-if current_price.to_i > 0 
-  current_price = current_price.to_i
-elsif current_price.to_i <= 0
-  puts "GoodBye My Dear Friend"
-  exit
-else 
-  puts "#{current_price} is not Integer"
-  exit
+def get_summ
+  print 'Enter the current price: '
+  current_price = gets
+  if current_price.to_i >= 0 
+    current_price = current_price.to_i
+  else 
+    puts "GoodBye My Dear Friend"
+    exit
+  end
+  current_price
 end
 
-print 'Enter the markup precent: '
-percent = gets 
-if percent.to_f > 0
-  percent = percent.to_f / 100
-else
-  puts "number is not right"
-  exit
+def get_percent
+  print 'Enter the markup precent: '
+  percent = gets 
+  if percent.to_f > 0
+    percent = percent.to_f / 100
+  else
+    puts "number is not right"
+    exit
+  end 
+  1 + percent
 end
-old_price = current_price / (1 + percent)
-puts "first price: #{old_price.round(2)}"
 
+step = 0
+summ = 0 
+while step < 2 do
+  old_price = get_summ / get_percent
+  puts "first price: #{old_price.round(2)}"
+  step += 1
+  summ += old_price
+end
+puts "Выполненные операции: #{step}"
+puts "Общая цена закупки: #{summ.round(2)} "
