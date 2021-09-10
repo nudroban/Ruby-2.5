@@ -23,12 +23,15 @@ def get_percent
 end
 
 step = 0
-summ = 0 
+summ = 0
+a = [] 
 while step < 2 do
   old_price = get_summ / get_percent
   puts "first price: #{old_price.round(2)}"
   step += 1
   summ += old_price
+  a.append(old_price)
 end
 puts "Выполненные операции: #{step}"
-puts "Общая цена закупки: #{summ.round(2)} "
+puts "Общая цена закупки: #{summ.round(2)}"
+puts "Сумма 2: #{a.sum.round(2)}"
