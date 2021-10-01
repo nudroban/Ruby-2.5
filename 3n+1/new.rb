@@ -15,9 +15,7 @@ def calc_odd(number)
 end
 
 def cicle(value)
-
   arr = []
-
   while value <= 0 do
     puts "Number is not wrong"
     exit
@@ -31,20 +29,15 @@ def cicle(value)
     end
     arr.append(value)
   end
-
-  return arr
-  
+  arr
 end
 
 hash = Hash.new
 
 for value in 1..20 do
-
-    hash[value] = cicle(value)
-   
+  hash[value.to_s] = cicle(value)
 end
 
-hash.map do |k, v| 
-  puts k, v.to_a
+for key, value in hash do 
+  puts key, value.to_s
 end
-
