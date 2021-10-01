@@ -16,7 +16,7 @@ end
 
 def cicle(value)
 
-  arr = []
+a = []
 
   while value <= 0 do
     puts "Number is not wrong"
@@ -29,22 +29,13 @@ def cicle(value)
     else
       value = calc_odd(value)
     end
-    arr.append(value)
+    a.append(value)
   end
-
-  return arr
-  
+  puts "#{a}"
 end
 
-hash = Hash.new
 
 for value in 1..20 do
-
-    hash[value] = cicle(value)
-   
+  puts "Check The Number: #{value}"
+  cicle(value)
 end
-
-hash.map do |k, v| 
-  puts k, v.to_a
-end
-
