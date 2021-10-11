@@ -9,8 +9,6 @@ def person
   person
 end
 
-humans = Array.new
-
 def header
 <<-STRING
 <html>
@@ -48,7 +46,7 @@ def html_person(x)
 human = person 
 
 <<-STRING
-   <tr>
+   <tr #{ x % 2 == 0 ? "" : "class='fon'" }>
     <th>#{x}</th>
     <th>#{human[:first_name]}</th>
     <th>#{human[:last_name]}</th>
@@ -58,36 +56,20 @@ human = person
 STRING
 end
 
-def html_person1(x)
-
-human = person
-
-<<-STRING
-   <tr class="fon">
-    <th>#{x}</th>
-    <th>#{human[:first_name]}</th>
-    <th>#{human[:last_name]}</th>
-    <th>#{human[:city]}</th>
-    <th>#{human[:email]}</th>
-   </tr>
-STRING
-end
 
 File.open("table.html", "w") do |file|
-    file.write(header)
-    x = 0
+  file.write(header)
+  x = 0
   while x < 10 do
     x += 1
-    if x % 2 == 0 
-      file.write(html_person1(x))
-    else  
-      file.write(html_person(x))
-    end
+    file.write(html_person(x))
   end 
-file.write(footer)
+  file.write(footer)
 end
 
 File.open("humans.html", "w") do |doc|
+  humans = Array.new
+
   for x in 1..10 do 
     humans = person    
     humans.length
