@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Таблица</title>
+  <style type="text/css">
+   TABLE {
+    width: 227px; /* Ширина таблицы */
+    background: #ccc; /* Цвет фона нечетных строк */
+    border: 1px solid #000; /* Рамка вокруг таблицы */
+   }
+   TD, TH {
+    padding: 3px; /* Поля вокруг содержимого */
+    text-align: left; /* Выравнивание по левому краю */
+   }
+   TR.even {
+    background: #e0e0e0; /* Цвет фона четных строк*/
+   }
+   .even TD {
+    border-top: 2px solid #666; /* Темная линия сверху ячейки */
+    border-bottom: 1px solid #fff; /* Светлая линия снизу ячейки */
+   }
+  </style>
+ </head>
+ <body>
+  <table cellspacing="0">
+   <tr>
+    <th>&nbsp;</th><th>2004</th><th>2005</th><th>2006</th>
+   </tr>
+   <tr class="even">
+    <td>Рубины</td><td>43</td><td>51</td><td>79</td>
+   </tr>
+   <tr>
+    <td>Изумруды</td><td>28</td><td>34</td><td>48</td>
+   </tr>
+   <tr class="even">
+    <td>Сапфиры</td><td>29</td><td>57</td><td>36</td>
+   </tr>
+  </table>
+ </body>
+</html>
