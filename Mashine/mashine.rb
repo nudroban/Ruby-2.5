@@ -1,11 +1,8 @@
 class Mashine
   def initialize 
-     engine
-     sleep 2
-     akselerate
-     sleep 2 
-     speedup
- end
+    akselerate
+    speedup
+  end
 
   def akselerate
     puts "Набираем скорость"
@@ -30,20 +27,10 @@ class Mashine
   private
 
   def engine
-    step = 0
-    sum = 0    
-    arr = []
-    while step < 3 do
       puts "Поворот ключа зажигания"
-      sleep 2    
-      step += 1
-      sum += step
-      arr.append(step)
-    end
-   puts "Завелась с #{arr.length} раза"
-end
+  end
 
-   def speedup
+  def speedup
     title = ['Норм едем','ЭЭЭ,не так быстро','Блин,Сеня тормози!!!мы разобьемся!!!']
     value = 60
     title.each do |i|
