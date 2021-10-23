@@ -57,10 +57,10 @@ STRING
 end
 
 
-File.open("table.html", "w") do |file|
+File.open("index.html", "w") do |file|
   file.write(header)
   x = 0
-  while x < 10 do
+  while x < 30 do
     x += 1
     file.write(html_person(x))
   end 
