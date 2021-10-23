@@ -30,17 +30,17 @@ class Mashine
   private
 
   def engine
-step = 0
-sum = 0    
-arr = []
+    step = 0
+    sum = 0    
+    arr = []
     while step < 3 do
-    puts "Поворот ключа зажигания"
-sleep 2    
-step += 1
-    sum += step
-    arr.append(step)
+      puts "Поворот ключа зажигания"
+      sleep 2    
+      step += 1
+      sum += step
+      arr.append(step)
     end
-puts "Завелась с #{arr.length} раза"
+   puts "Завелась с #{arr.length} раза"
 end
 
    def speedup
