@@ -1,7 +1,7 @@
-def get_summ
+def get_summ(current_price)
   print 'Enter the current price: '
   current_price = gets
-  if current_price.to_i >= 0 
+  if current_price.to_i >= 0
     current_price = current_price.to_i
   else 
     puts "GoodBye My Dear Friend"
