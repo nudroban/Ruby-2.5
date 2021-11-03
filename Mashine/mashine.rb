@@ -1,7 +1,7 @@
 class Mashine
   def initialize 
+    engine
     akselerate
-    speedup
   end
 
   def akselerate
@@ -24,19 +24,18 @@ class Mashine
     puts "Торможение"
   end
 
+  def stopping
+    puts "Остановка"
+    turn_off  
+  end
+
   private
 
   def engine
-      puts "Поворот ключа зажигания"
+    puts "Запуск двигателя"
   end
-
-  def speedup
-    title = ['Норм едем','ЭЭЭ,не так быстро','Блин,Сеня тормози!!!мы разобьемся!!!']
-    value = 60
-    title.each do |i|
-    puts "#{value}km/h  #{i}"
-    sleep 4
-    value = value + 50
-    end
+  
+  def turn_off
+    puts "Заглушить двигатель"
   end
 end
