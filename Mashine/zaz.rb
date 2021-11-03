@@ -33,7 +33,9 @@ require_relative 'mashine.rb'
 #user = Userinput.new
 zaz = Mashine.new
 zaz.go_ahead
+zaz.left
+puts 'Shopping'
+zaz.akselerate
+zaz.go_ahead
 zaz.right
-zaz.braking
-zaz.stopping
-zaz.class
+puts 'Coffe'
