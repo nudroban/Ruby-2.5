@@ -1,12 +1,16 @@
 class Mashine
 
   def initialize
-    akselerate
+    @step = 0
   end
 
   def akselerate
     engine
     puts "Набираем скорость"
+  end
+
+  def engine_count
+    puts "Количество заводов двигателя #{@step}"
   end
 
   def go_ahead
@@ -25,6 +29,7 @@ class Mashine
 
   def braking
     puts "Торможение"
+    stopping
   end
 
   def stopping
@@ -35,6 +40,7 @@ class Mashine
   private
 
   def engine
+    @step += 1
     puts "Запуск двигателя"
   end
      
