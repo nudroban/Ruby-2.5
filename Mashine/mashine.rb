@@ -1,10 +1,11 @@
 class Mashine
-  def initialize 
-    engine
+
+  def initialize
     akselerate
   end
 
   def akselerate
+    engine
     puts "Набираем скорость"
   end
 
@@ -14,10 +15,12 @@ class Mashine
 
   def left
     puts "Поворот влево"
+    braking  
   end
 
   def right
     puts "Поворот вправо"
+    braking  
   end
 
   def braking
@@ -26,7 +29,7 @@ class Mashine
 
   def stopping
     puts "Остановка"
-    turn_off  
+    turn_off
   end
 
   private
@@ -34,7 +37,7 @@ class Mashine
   def engine
     puts "Запуск двигателя"
   end
-  
+     
   def turn_off
     puts "Заглушить двигатель"
   end
