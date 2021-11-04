@@ -55,5 +55,5 @@ for x in 1..3
     audi.engine_count
     end
 end
-puts "Общее количество заводов машин #{$sum}"
 
+zaz.summary_engine_count
