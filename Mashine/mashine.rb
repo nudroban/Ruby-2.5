@@ -1,16 +1,22 @@
+$sum = 0
 class Mashine
 
   def initialize
     @step = 0
   end
-
+  def warming_up
+    engine
+    turn_off
+  end
   def akselerate
     engine
-    puts "Набираем скорость"
+      puts "Запуск двигателя"
+      puts "Набираем скорость"
   end
 
   def engine_count
     puts "Количество заводов двигателя #{@step}"
+    $sum += @step
   end
 
   def go_ahead
@@ -40,8 +46,8 @@ class Mashine
   private
 
   def engine
+    puts "Поворот ключа зажигания"
     @step += 1
-    puts "Запуск двигателя"
   end
      
   def turn_off
