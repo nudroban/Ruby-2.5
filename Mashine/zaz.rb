@@ -32,18 +32,28 @@ require_relative 'mashine.rb'
 
 #user = Userinput.new
 zaz = Mashine.new
-for x in 1..3 do
-  zaz.akselerate
+volvo = Mashine.new
+audi = Mashine.new
+for x in 1..3
   if x == 1
-    zaz.left
-    puts "Shopping"
+  zaz.akselerate
+  zaz.go_ahead
+  zaz.left
+  puts "Shopping"
+  zaz.engine_count
   elsif x == 2
-    zaz.right
-    puts "Drink coffe"
+    volvo.akselerate
+    volvo.right
+    puts "Coffe-Brake"
+    volvo.engine_count
   else
-    zaz.left
+    audi.warming_up
+    audi.warming_up
+    audi.akselerate
+    audi.left
     puts "Go home"
-  end
+    audi.engine_count
+    end
 end
-zaz.engine_count
+puts "Общее количество заводов машин #{$sum}"
 
