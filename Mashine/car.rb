@@ -1,23 +1,26 @@
 require_relative 'mashine.rb'
 
 car = Mashine.new
-for x in 1..4
+zaz = Mashine.new
+vaz = Mashine.new
+for x in 1..5
   x = rand(1..4)
-  puts x
   if x == 1
     puts "Моя машина"
     car.akselerate
-    car.stopping
+    car.left
   elsif x == 2
     puts "Сажусь в заз"
-    zaz = Mashine.new
     zaz.akselerate
-    zaz.stopping
+    zaz.left
   elsif x == 3
     puts "Сажусь в Ваз"
-    vaz = Mashine.new
+    vaz.warming_up
+    vaz.warming_up
+    vaz.warming_up
     vaz.akselerate
-    vaz.stopping
+    vaz.go_ahead
+    vaz.right
   else
     puts "Нет машины"
     exit

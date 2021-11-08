@@ -2,28 +2,28 @@ class Mashine
   @@engine_summarize = 0
   def initialize
     @step = 0
+    @value = 100
   end
 
   def warming_up
     engine
     turn_off
+    engine_count
   end
 
   def akselerate
+    engine
     puts "Запуск двигателя"
     puts "Набираем скорость"
   end
 
   def engine_count
     puts "Количество заводов двигателя #{@step}"
+    puts "Состояние аккумулятора #{@value}%"
   end
 
   def summary_engine_count
     puts "Всего машины заводились: #{@@engine_summarize}"
-  end
-
-  def engine_condition
-
   end
 
   def go_ahead
@@ -32,10 +32,12 @@ class Mashine
 
   def left
     puts "Поворот влево"
+    braking
   end
 
   def right
     puts "Поворот вправо"
+    braking
   end
 
   def braking
@@ -46,6 +48,7 @@ class Mashine
   def stopping
     puts "Остановка"
     turn_off
+    engine_count
   end
 
   private
@@ -53,17 +56,26 @@ class Mashine
   def engine
     puts "Поворот ключа зажигания"
     increment_engine_count
-    @on
+    accum_condition
   end
      
   def turn_off
     puts "Заглушить двигатель"
-    @off
   end
 
   def increment_engine_count
     @step += 1
     @@engine_summarize += 1
+  end
+
+  def accum_condition
+    @value -= 20
+    if @value  <= 10
+      puts "Аккумулятор разряжен"
+      puts "Состояние аккумулятора #{@value}%"
+      turn_off
+      exit
+    end
   end
 
 end
