@@ -1,6 +1,8 @@
 class Mashine
+
   @@engine_summarize = 0
-  def initialize
+
+  def initialize(name = "no_name")
     @step = 0
     @value = 100
   end
@@ -69,11 +71,11 @@ class Mashine
   end
 
   def accum_condition
-    @value -= 20
-    if @value  <= 10
+    if @value > 10
+      @value -= 10
+    else
       puts "Аккумулятор разряжен"
       puts "Состояние аккумулятора #{@value}%"
-      turn_off
       exit
     end
   end
