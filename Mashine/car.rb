@@ -1,28 +1,14 @@
 require_relative 'mashine.rb'
 
-car = Mashine.new
-zaz = Mashine.new
-vaz = Mashine.new
+
+opel = Mashine.new("ОПЕЛЬ")
+zaz = Mashine.new("ЗАЗ")
+vaz = Mashine.new("ВАЗ")
 for x in 1..5
-  x = rand(1..4)
-  if x == 1
-    puts "Моя машина"
-    car.akselerate
-    car.left
-  elsif x == 2
-    puts "Сажусь в заз"
-    zaz.akselerate
-    zaz.left
-  elsif x == 3
-    puts "Сажусь в Ваз"
-    vaz.warming_up
-    vaz.warming_up
-    vaz.warming_up
-    vaz.akselerate
-    vaz.go_ahead
-    vaz.right
-  else
-    puts "Нет машины"
-    exit
-  end
-  end
+arr = %w[akselerate go_ahead engine_count summary_engine_count left right braking stopping]
+method = rand(1..arr.length)
+cars = [opel, zaz, vaz]
+value = rand(1..cars.length)
+cars[value - 1].name
+cars[value - 1].send(arr[method - 1])
+end
