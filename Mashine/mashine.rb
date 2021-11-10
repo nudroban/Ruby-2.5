@@ -10,7 +10,6 @@ class Mashine
 
   def name
     puts "#{@name}"
-    accum_condition
   end
 
   def akselerate
