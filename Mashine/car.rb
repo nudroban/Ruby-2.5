@@ -1,14 +1,15 @@
-require_relative 'mashine.rb'
+# frozen_string_literal: true
 
+require_relative 'mashine'
 
-opel = Mashine.new("ОПЕЛЬ")
-zaz = Mashine.new("ЗАЗ")
-vaz = Mashine.new("ВАЗ")
-for x in 1..5
+opel = Mashine.new('ОПЕЛЬ')
+zaz = Mashine.new('ЗАЗ')
+vaz = Mashine.new('ВАЗ')
 arr = %w[akselerate go_ahead engine_count summary_engine_count left right braking stopping]
-method = rand(1..arr.length)
 cars = [opel, zaz, vaz]
-value = rand(1..cars.length)
-cars[value - 1].name
-cars[value - 1].send(arr[method - 1])
+5.times do
+  method = rand(1..arr.length)
+  value = rand(1..cars.length) - 1
+  cars[value].name
+  cars[value].send(arr[method - 1])
 end
