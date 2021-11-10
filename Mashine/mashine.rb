@@ -1,21 +1,22 @@
+# frozen_string_literal: true
+
+# top-level documentation comment
 class Mashine
-
   @@engine_summarize = 0
-
-  def initialize(name = "no_name")
+  def initialize(name = 'no_name')
     @step = 0
     @value = 100
     @name = name
   end
 
   def name
-    puts "#{@name}"
+    puts @name
   end
 
   def akselerate
     engine
-    puts "Запуск двигателя"
-    puts "Набираем скорость"
+    puts 'Запуск двигателя'
+    puts 'Набираем скорость'
   end
 
   def engine_count
@@ -27,37 +28,37 @@ class Mashine
   end
 
   def go_ahead
-    puts "Ехать вперед"
+    puts 'Ехать вперед'
   end
 
   def left
-    puts "Поворот влево"
+    puts 'Поворот влево'
   end
 
   def right
-    puts "Поворот вправо"
+    puts 'Поворот вправо'
   end
 
   def braking
-    puts "Торможение"
+    puts 'Торможение'
     stopping
   end
 
   def stopping
-    puts "Остановка"
+    puts 'Остановка'
     turn_off
   end
 
   private
 
   def engine
-    puts "Поворот ключа зажигания"
+    puts 'Поворот ключа зажигания'
     increment_engine_count
     accum_condition
   end
-     
+
   def turn_off
-    puts "Заглушить двигатель"
+    puts 'Заглушить двигатель'
   end
 
   def increment_engine_count
@@ -70,8 +71,7 @@ class Mashine
     if @value > 10
       @value -= 10
     else
-      puts "Аккумулятор разряжен"
-      puts "Состояние аккумулятора #{@value}%"
+      puts 'Аккумулятор разряжен'
       exit
     end
   end
