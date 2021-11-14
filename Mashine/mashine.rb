@@ -5,8 +5,8 @@ class Mashine
   @@engine_summarize = 0
   def initialize(name = 'no_name')
     @step = 0
-    @value = 100
     @name = name
+    @accum = Accum.new
   end
 
   def name
@@ -29,18 +29,22 @@ class Mashine
 
   def go_ahead
     puts 'Ехать вперед'
+    @accum.charging
   end
 
   def left
     puts 'Поворот влево'
+    @accum.charging
   end
 
   def right
     puts 'Поворот вправо'
+    @accum.charging
   end
 
   def braking
     puts 'Торможение'
+    @accum.charging
     stopping
   end
 
@@ -49,12 +53,16 @@ class Mashine
     turn_off
   end
 
+  def acc_condition
+    @accum.condition
+  end
+
   private
 
   def engine
     puts 'Поворот ключа зажигания'
     increment_engine_count
-    accum_condition
+    @accum.discharging
   end
 
   def turn_off
@@ -66,13 +74,22 @@ class Mashine
     @@engine_summarize += 1
   end
 
-  def accum_condition
+end
+
+class Accum
+  def initialize
+    @value = 100
+  end
+
+  def condition
     puts "Состояние аккумулятора #{@value}%"
-    if @value > 10
-      @value -= 10
-    else
-      puts 'Аккумулятор разряжен'
-      exit
-    end
+  end
+
+  def charging
+    @value += 5
+  end
+
+  def discharging
+    @value -= 10
   end
 end
