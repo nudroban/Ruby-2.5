@@ -3,14 +3,14 @@
 # top-level documentation comment
 class Mashine
   @@engine_summarize = 0
-  def initialize(name = 'no_name')
+  def initialize(name)
     @step = 0
     @name = name
     @accum = Accum.new
   end
 
   def name
-    puts @name
+    print "#{@name}: "
   end
 
   def akselerate
@@ -28,21 +28,25 @@ class Mashine
   end
 
   def go_ahead
+    acc_condition
     puts 'Ехать вперед'
     @accum.charging
   end
 
   def left
+    acc_condition
     puts 'Поворот влево'
     @accum.charging
   end
 
   def right
+    acc_condition
     puts 'Поворот вправо'
     @accum.charging
   end
 
   def braking
+    acc_condition
     puts 'Торможение'
     @accum.charging
     stopping
@@ -55,6 +59,7 @@ class Mashine
 
   def acc_condition
     @accum.condition
+    turn_off if @accum.charging >= 100 && @accum.discharging < 10
   end
 
   private
@@ -73,7 +78,6 @@ class Mashine
     @step += 1
     @@engine_summarize += 1
   end
-
 end
 
 class Accum
@@ -82,7 +86,7 @@ class Accum
   end
 
   def condition
-    puts "Состояние аккумулятора #{@value}%"
+    print "Состояние аккумулятора #{@value}%; "
   end
 
   def charging

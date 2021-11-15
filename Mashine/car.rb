@@ -1,16 +1,25 @@
 # frozen_string_literal: true
 
 require_relative 'mashine'
+require 'faker'
 
-opel = Mashine.new('ОПЕЛЬ')
-zaz = Mashine.new('ЗАЗ')
-vaz = Mashine.new('ВАЗ')
-arr = %w[akselerate go_ahead engine_count summary_engine_count left right braking stopping]
-cars = [opel, zaz, vaz]
-50.times do
+# opel = Mashine.new('ОПЕЛЬ')
+# zaz = Mashine.new('ЗАЗ')
+# vaz = Mashine.new('ВАЗ')
+# cars = [opel, zaz, vaz]
+cars = []
+(1..50).each do |car|
+  car = Mashine.new(Faker::Vehicle.make)
+  cars.append(car)
+end
+
+arr = %w[akselerate go_ahead left right braking stopping]
+
+100.times do
   method = rand(1..arr.length)
   value = rand(1..cars.length) - 1
   cars[value].name
   cars[value].send(arr[method - 1])
 end
-cars.each { |car| car.acc_condition }
+
+cars.each { |car| print car.name, car.acc_condition }
