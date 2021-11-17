@@ -8,8 +8,19 @@ require 'faker'
 # vaz = Mashine.new('ВАЗ')
 # cars = [opel, zaz, vaz]
 cars = []
-(1..50).each do |car|
-  car = Mashine.new(Faker::Vehicle.make)
+names = []
+step = 0
+50.times do
+  name = Faker::Vehicle.make
+  if names.include? name
+    names.append("#{name}-#{step}")
+  else
+    names.append(name)
+  end
+  step += 1
+end
+names.each do |car|
+  car = Mashine.new(car)
   cars.append(car)
 end
 
