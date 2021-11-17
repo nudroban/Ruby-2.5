@@ -20,6 +20,7 @@ class Mashine
   end
 
   def engine_count
+    @accum.condition
     puts "Количество заводов двигателя #{@step}"
   end
 
@@ -58,7 +59,6 @@ class Mashine
   end
 
   def acc_condition
-    @accum.condition
     turn_off if @accum.charging >= 100 && @accum.discharging < 10
   end
 
