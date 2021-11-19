@@ -20,7 +20,8 @@ class Mashinizer
   end
 
   def word
-    word_length.times { |x| letters }
+    word_length.times { letters }
   end
-
+  n = Mashinizer.new
+  n.mashine_name
 end
