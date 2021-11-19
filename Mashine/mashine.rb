@@ -24,7 +24,7 @@ class Mashine
     puts "Количество заводов двигателя #{@step}"
   end
 
-  def summary_engine_count
+  def self.summary_engine_count
     puts "Всего машины заводились: #{@@engine_summarize}"
   end
 
