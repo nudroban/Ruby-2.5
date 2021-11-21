@@ -4,19 +4,20 @@ require_relative 'mashine'
 require_relative 'mashinizer'
 
 cars = []
-names = []
-500.times do
-  name = Mashinizer.mashine_name
-  names.append(name) unless names.include? name
-end
+names = %w[Lada Tesla Volkswagen Mercedes-Benz Ferrari Porsche Audi Alfa Romeo BMW Renault Lamborghini Toyota Volvo AMG
+           Geely Dodge Rolls-Royce Kia Maserati Mustang]
+number = []
+
 names.each do |car|
   car = Mashine.new(car)
+  num = Numberizer.number
   cars.append(car)
+  number.append(num)
 end
 
 arr = %w[akselerate go_ahead left right braking stopping]
 
-100.times do
+55.times do
   method = rand(1..arr.length)
   value = rand(1..cars.length) - 1
   cars[value].name

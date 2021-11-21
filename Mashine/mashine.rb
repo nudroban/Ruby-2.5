@@ -7,10 +7,11 @@ class Mashine
     @step = 0
     @name = name
     @accum = Accum.new
+    @number = Numberizer.number
   end
 
   def name
-    print "#{@name}: "
+    print "#{@name}(#{@number}): "
   end
 
   def akselerate
