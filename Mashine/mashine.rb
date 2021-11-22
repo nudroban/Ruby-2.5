@@ -11,7 +11,11 @@ class Mashine
   end
 
   def name
-    print "#{@name}(#{@number}): "
+    "#{@name} "
+  end
+
+  def number
+    @number.to_s
   end
 
   def akselerate
@@ -20,13 +24,16 @@ class Mashine
     puts 'Набираем скорость'
   end
 
-  def engine_count
+  def accum
     @accum.condition
-    puts "Количество заводов двигателя #{@step}"
+  end
+
+  def engine_count
+    @step.to_s
   end
 
   def self.summary_engine_count
-    puts "Всего машины заводились: #{@@engine_summarize}"
+    @@engine_summarize.to_s
   end
 
   def go_ahead
@@ -87,7 +94,7 @@ class Accum
   end
 
   def condition
-    print "Состояние аккумулятора #{@value}%; "
+    "#{@value}%"
   end
 
   def charging
