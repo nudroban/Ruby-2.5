@@ -24,5 +24,5 @@ arr = %w[akselerate go_ahead left right braking stopping]
   cars[value].send(arr[method - 1])
 end
 
-cars.each { |car| print car.name, car.engine_count }
+cars.each { |car| print car.name, car.number, car.engine_count }
 Mashine.summary_engine_count
