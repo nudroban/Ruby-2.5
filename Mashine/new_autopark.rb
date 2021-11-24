@@ -67,5 +67,10 @@ File.open('cars.html', 'w') do |file|
       </tr>
     STRING
   end
+  file.write <<~STRING
+    <tr>
+      <th colspan="4">Summary Engine Count is: #{Mashine.summary_engine_count} times</th>
+    </tr>
+  STRING
   file.write(footer)
 end
