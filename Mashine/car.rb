@@ -17,12 +17,12 @@ end
 
 arr = %w[akselerate go_ahead left right braking stopping]
 
-55.times do
+50.times do
   method = rand(1..arr.length)
   value = rand(1..cars.length) - 1
   cars[value].name
   cars[value].send(arr[method - 1])
 end
 
-cars.each { |car| print car.name, car.number, car.engine_count }
+cars.each { |car| puts  car.name, car.accum, car.number, car.engine_count}
 Mashine.summary_engine_count
