@@ -11,7 +11,7 @@ class Mashine
   end
 
   def name
-    "#{@name}"
+    @name.to_s
   end
 
   def number
@@ -37,32 +37,27 @@ class Mashine
   end
 
   def go_ahead
-    accum
     puts 'Ехать вперед'
     @accum.charging
   end
 
   def left
-    accum
     puts 'Поворот влево'
     @accum.charging
   end
 
   def right
-    accum
     puts 'Поворот вправо'
     @accum.charging
   end
 
   def braking
-    accum
     puts 'Торможение'
     @accum.charging
     stopping
   end
 
   def stopping
-    accum
     puts 'Остановка'
     turn_off
   end
@@ -92,7 +87,7 @@ class Accum
   end
 
   def engine_enough?
-    condition > 10 ? true : false
+    condition > 10
   end
 
   def condition

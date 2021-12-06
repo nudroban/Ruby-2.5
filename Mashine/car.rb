@@ -4,9 +4,13 @@ require_relative 'mashine'
 require_relative 'mashinizer'
 
 cars = []
-names = %w[Lada Tesla Volkswagen Mercedes-Benz Ferrari Porsche Audi Alfa Romeo BMW Renault Lamborghini Toyota Volvo AMG
-           Geely Dodge Rolls-Royce Kia Maserati Mustang]
+names = []
 number = []
+
+50.times do
+  name = Mashinizer.mashine_name
+  names.append(name) unless names.include? name
+end
 
 names.each do |car|
   car = Mashine.new(car)
