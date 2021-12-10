@@ -74,7 +74,7 @@ marks.each do |car|
   numbers.append(num)
 end
 
-arr = %w[akselerate go_ahead left right braking stopping]
+arr = %w[akselerate go_ahead left right braking]
 
 50.times do
   method = rand(1..arr.length)

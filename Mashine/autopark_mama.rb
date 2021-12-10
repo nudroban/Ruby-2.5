@@ -82,7 +82,7 @@ class People
 end
 
 cars = []
-marks = %w[КамАЗ ГАЗ ЗИЛ УРАЛ КРАЗ Benz Man Daf Scania Iveco Volvo Renault Nissan Tatra Mitsubishi]
+marks = %w[ANKAI AYATS BAW DAEWOO FOTON GOLDEN DRAGON HIGER HYUNDAI IRISBUS ISUZU IVECO IVECO-AMT JAC KIA KING LONG LOTOS MERCEDES NEOPLAN OTOKAR SCANIA SETRA SOLARIS SUNLONG TEMSA TOYOTA TROLIGA VAN HOOL VDL VOLGABUS VOLVO YUTONG ZHONGTONG ZONDA АВТО-ПРОФИ БЕЛКОММУНМАШ БОГДАН ВОЛЖАНИНГАЗ ГОЛАЗ ЗИЛ КАВЗ КАМАЗ КРОНА ЛАЗ ЛИАЗ МАЗ МАЗ-КУПАВА МАРЗ НЕМАН НЕФАЗ ОЛИМП ПАЗ ПРОМАВТО РОАЗ СИБИРЬ ТРЕЙЛЕР СПЕЦТЕХПРОМ УРАЛ УРАЛ-КУПАВА УРАЛСПЕЦТРАНС]
 numbers = []
 
 marks.each do |car|
@@ -92,7 +92,7 @@ marks.each do |car|
   numbers.append(num)
 end
 
-arr = %w[akselerate go_ahead left right braking stopping]
+arr = %w[akselerate go_ahead left right braking]
 
 50.times do
   method = rand(1..arr.length)
