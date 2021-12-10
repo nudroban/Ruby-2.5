@@ -60,7 +60,7 @@ end
 File.open("index.html", "w") do |file|
   file.write(header)
   x = 0
-  while x < 30 do
+  while x < 400 do
     x += 1
     file.write(html_person(x))
   end 

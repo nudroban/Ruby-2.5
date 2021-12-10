@@ -87,7 +87,7 @@ class Accum
   end
 
   def engine_enough?
-    condition > 10
+    condition > 10 ? true : false
   end
 
   def condition

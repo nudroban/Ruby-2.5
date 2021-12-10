@@ -74,7 +74,7 @@ end
 
 arr = %w[akselerate go_ahead left right braking stopping]
 
-500.times do
+50.times do
   method = rand(1..arr.length)
   value = rand(1..cars.length) - 1
   puts cars[value].name
