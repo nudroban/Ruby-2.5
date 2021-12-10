@@ -11,8 +11,9 @@ class Trucks < Mashine
   end
 
   def akselerate
-    super
     @load = true
+    puts "Загружаю авто!"
+    super
     @eng = true
   end
 
@@ -46,6 +47,13 @@ class Trucks < Mashine
     else
       puts "Загрузите авто!"
     end
+  end
+
+  def stopping
+    super
+    puts "Выгрузка!"
+    @load = false
+    @eng = false
   end
 end
 
