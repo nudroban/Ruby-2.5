@@ -3,58 +3,28 @@
 # top-level documentation comment
 class Mashine
   @@engine_summarize = 0
-  def initialize(name)
+  def initialize
     @step = 0
-    @name = name
-    @accum = Accum.new
-    @number = Numberizer.number
   end
 
-  def name
-    @name.to_s
-  end
-
-  def number
-    @number.to_s
-  end
-
-  def akselerate
-    engine
-    puts 'Запуск двигателя'
-    puts 'Набираем скорость'
-  end
-
-  def accum
-    @accum.condition
-  end
-
-  def engine_count
-    @step.to_s
-  end
-
-  def self.summary_engine_count
-    @@engine_summarize.to_s
+  def starting
+    puts 'Тронуться с места'
   end
 
   def go_ahead
     puts 'Ехать вперед'
-    @accum.charging
   end
 
   def left
     puts 'Поворот влево'
-    @accum.charging
   end
 
   def right
     puts 'Поворот вправо'
-    @accum.charging
   end
 
   def braking
     puts 'Торможение'
-    @accum.charging
-    stopping
   end
 
   def stopping
@@ -62,43 +32,27 @@ class Mashine
     turn_off
   end
 
+  def engine_count
+    puts "Машину завели :#{@step}"
+  end
+
+  def self.summary_engine_count
+    puts "Общее количество заводов машин :#{@@engine_summarize}"
+  end
+
   private
 
-  def engine
-    @accum.engine_enough?
-    puts 'Поворот ключа зажигания'
+  def turn_on
+    puts 'Завести двигатель!'
     increment_engine_count
-    @accum.discharging
   end
 
   def turn_off
-    puts 'Заглушить двигатель'
+    puts 'Заглушить двигатель!'
   end
 
   def increment_engine_count
     @step += 1
     @@engine_summarize += 1
-  end
-end
-
-class Accum
-  def initialize
-    @value = 100
-  end
-
-  def engine_enough?
-    condition > 10 ? true : false
-  end
-
-  def condition
-    @value
-  end
-
-  def charging
-    @value += 5 if condition < 100
-  end
-
-  def discharging
-    @value -= 10
   end
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class name for car!!!
 class Mashinizer
   def self.mashine_name
     str = ''
@@ -18,6 +19,7 @@ class Mashinizer
   end
 end
 
+# This class for number on car!!!
 class Numberizer
   def self.number
     str = ''
