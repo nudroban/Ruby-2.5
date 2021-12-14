@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Accum
   def initialize
     @value = 100
@@ -16,6 +18,10 @@ class Accum
   end
 
   def discharging
-    @value -= 10
+    if condition > 10
+      @value -= 10
+    else
+      puts 'Аккум разряжен!'
+    end
   end
 end

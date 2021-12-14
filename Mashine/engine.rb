@@ -8,12 +8,14 @@ class Engine
 
   def on
     @engine = true
-    puts 'Двигатель заведен'
+  end
+
+  def condition
+    @engine
   end
 
   def off
     @engine = false
-    puts 'Двигатель заглушен'
   end
 end
 

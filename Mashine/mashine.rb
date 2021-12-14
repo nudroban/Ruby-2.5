@@ -3,11 +3,14 @@
 # top-level documentation comment
 class Mashine
   @@engine_summarize = 0
-  def initialize
+  def initialize(name)
     @step = 0
+    @name = name
+    @acc = Accum.new
   end
 
   def starting
+    turn_on
     puts 'Тронуться с места'
   end
 
@@ -25,6 +28,7 @@ class Mashine
 
   def braking
     puts 'Торможение'
+    stopping
   end
 
   def stopping
@@ -33,18 +37,20 @@ class Mashine
   end
 
   def engine_count
-    puts "Машину завели :#{@step}"
+    @step
   end
 
   def self.summary_engine_count
-    puts "Общее количество заводов машин :#{@@engine_summarize}"
+    @@engine_summarize
   end
 
   private
 
   def turn_on
+    @acc.engine_enough?
     puts 'Завести двигатель!'
     increment_engine_count
+    @acc.discharging
   end
 
   def turn_off
