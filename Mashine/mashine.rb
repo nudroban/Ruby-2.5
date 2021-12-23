@@ -16,18 +16,22 @@ class Mashine
 
   def go_ahead
     puts 'Ехать вперед'
+    @acc.charging
   end
 
   def left
     puts 'Поворот влево'
+    @acc.charging
   end
 
   def right
     puts 'Поворот вправо'
+    @acc.charging
   end
 
   def braking
     puts 'Торможение'
+    @acc.charging
     stopping
   end
 

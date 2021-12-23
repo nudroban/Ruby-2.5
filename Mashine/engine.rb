@@ -19,9 +19,6 @@ class Engine
   end
 end
 
-class ElectroEngine < Engine
-end
-
 class GasolinEngine < Engine
 end
 

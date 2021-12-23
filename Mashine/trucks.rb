@@ -5,8 +5,9 @@ require_relative 'mashinizer'
 require_relative 'accum'
 require_relative 'engine'
 
-class Trucks
-  def initialize
+class Trucks < Mashine
+  def initialize(name)
+    super
     @load = false
   end
 

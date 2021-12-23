@@ -33,9 +33,10 @@ def footer
   STRING
 end
 
-class ElectroCar < Mashine
+class DieselCar < Mashine
   def initialize(name)
     super
+    @eng = DieselEngine.new
     @num = Numberizer.number
   end
 
@@ -50,31 +51,73 @@ class ElectroCar < Mashine
   end
 
   def starting
-    if accum
+    if @eng.condition == false
+      super
+      @eng.on
+    else
+      puts 'Двигатель заведен!'
+    end
+  end
+
+  def go_ahead
+    if @eng.condition
       super
     else
-      puts @acc.condition.to_s
+      @eng.off
+      puts 'Двигатель не заведен!'
     end
+  end
+
+  def right
+    if @eng.condition
+      super
+    else
+      @eng.off
+      puts 'Двигатель не заведен!'
+    end
+  end
+
+  def left
+    if @eng.condition
+      super
+    else
+      @eng.off
+      puts 'Двигатель не заведен!'
+    end
+  end
+
+  def braking
+    if @eng.condition
+      super
+    else
+      @eng.off
+      puts 'Двигатель не заведен!'
+    end
+  end
+
+  def stopping
+    super
+    @eng.off
   end
 end
 
 cars = []
 
 100.times do
-  car = ElectroCar.new(Mashinizer.mashine_name)
+  car = DieselCar.new(Mashinizer.mashine_name)
   cars.append(car)
 end
 
 arr = %w[starting go_ahead left right braking]
 
-50_000.times do
+50000.times do
   method = rand(1..arr.length)
   value = rand(1..cars.length) - 1
   cars[value].name
   cars[value].send(arr[method - 1])
 end
 
-File.open('electro_car.html', 'w') do |file|
+File.open('diesel_car.html', 'w') do |file|
   file.write(header)
   cars.each do |car|
     file.write <<~STRING
@@ -88,7 +131,7 @@ File.open('electro_car.html', 'w') do |file|
   end
   file.write <<~STRING
     <tr>
-      <th colspan="4">Summary Engine Count is: #{ElectroCar.summary_engine_count} times</th>
+      <th colspan="4">Summary Engine Count is: #{DieselCar.summary_engine_count} times</th>
     </tr>
   STRING
   file.write(footer)
