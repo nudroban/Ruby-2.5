@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 require 'faker'
 
 def person
-  person = Hash.new
+  person = {}
   person[:first_name] = Faker::Name.first_name
   person[:last_name] = Faker::Name.last_name
   person[:city] = Faker::Address.city
@@ -46,7 +47,7 @@ def html_person(x)
 human = person 
 
 <<-STRING
-   <tr #{ x % 2 == 0 ? "" : "class='fon'" }>
+   <tr #{ x.even? ? '' : "class='fon'" }>
     <th>#{x}</th>
     <th>#{human[:first_name]}</th>
     <th>#{human[:last_name]}</th>
@@ -57,22 +58,13 @@ STRING
 end
 
 
-File.open("index.html", "w") do |file|
+File.open('humans.html', 'w') do |file|
   file.write(header)
   x = 0
-  while x < 400 do
+  while x < 10
     x += 1
     file.write(html_person(x))
-  end 
+  end
   file.write(footer)
 end
 
-File.open("humans.html", "w") do |doc|
-  humans = Array.new
-
-  for x in 1..10 do 
-    humans = person    
-    humans.length
-    doc.write(humans)
-  end
-end
