@@ -18,7 +18,7 @@ class Accum
   end
 
   def discharging
-    if condition > 10
+    if condition >= 10
       @value -= 10
     else
       puts 'Аккум разряжен!'

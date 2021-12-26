@@ -24,3 +24,6 @@ end
 
 class DieselEngine < Engine
 end
+
+class GasEngine < Engine
+end

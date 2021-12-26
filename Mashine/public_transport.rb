@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 require_relative 'mashine'
-class PublicTransport
-  def initialize
+require_relative 'mashinizer'
+require_relative 'accum'
+require_relative 'engine'
+
+class PublicTransport < Mashine
+  def initialize(name)
+    super
     @pass = false
   end
 
   def loading_passengers
     @pass = true
-    puts 'Passengers sit!'
+    puts 'Посадка пассажиров!'
   end
 
   def condition
@@ -17,9 +22,6 @@ class PublicTransport
 
   def uploading_passengers
     @pass = false
-  end
-
-  def self.loading_passegers
-    # code here
+    puts 'Высадка пассажиров!'
   end
 end

@@ -13,6 +13,7 @@ class Trucks < Mashine
 
   def load
     @load = true
+    puts 'Загружен!'
   end
 
   def condition
@@ -21,5 +22,6 @@ class Trucks < Mashine
 
   def unload
     @load = false
+    puts 'Выгружен!'
   end
 end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-# This GrandMa autopark
-require_relative 'public_transport'
+# This Semen autopark
+require_relative 'engine'
+require_relative 'trucks'
 
 def header
   <<~STRING
@@ -31,9 +32,10 @@ def footer
   STRING
 end
 
-class Trolleybus < PublicTransport
+class DumpTrucks < Trucks
   def initialize(name)
     super
+    @eng = DieselEngine.new
     @num = Numberizer.number
   end
 
@@ -48,39 +50,77 @@ class Trolleybus < PublicTransport
   end
 
   def starting
-    if accum
-      loading_passengers
+    if @eng.condition == false
+      load
+      super
+      @eng.on
+    else
+      puts 'Двигатель заведен!'
+    end
+  end
+
+  def go_ahead
+    if @eng.condition
       super
     else
-      puts 'Passengers not sit!'
+      @eng.off
+      puts 'Двигатель не заведен!'
+    end
+  end
+
+  def right
+    if @eng.condition
+      super
+    else
+      @eng.off
+      puts 'Двигатель не заведен!'
+    end
+  end
+
+  def left
+    if @eng.condition
+      super
+    else
+      @eng.off
+      puts 'Двигатель не заведен!'
+    end
+  end
+
+  def braking
+    if @eng.condition
+      super
+    else
+      @eng.off
+      puts 'Двигатель не заведен!'
     end
   end
 
   def stopping
     super
-    uploading_passengers
+    unload
+    @eng.off
   end
 end
 
-trolleybus = []
+cars = []
 
 100.times do
-  troll = Trolleybus.new(Mashinizer.mashine_name)
-  trolleybus.append(troll)
+  car = DumpTrucks.new(Mashinizer.mashine_name)
+  cars.append(car)
 end
 
 arr = %w[starting go_ahead left right braking]
 
 50_000.times do
   method = rand(1..arr.length)
-  value = rand(1..trolleybus.length) - 1
-  trolleybus[value].name
-  trolleybus[value].send(arr[method - 1])
+  value = rand(1..cars.length) - 1
+  cars[value].name
+  cars[value].send(arr[method - 1])
 end
 
-File.open('trolleybus.html', 'w') do |file|
+File.open('dump_trucks.html', 'w') do |file|
   file.write(header)
-  trolleybus.each do |car|
+  cars.each do |car|
     file.write <<~STRING
       <tr>
         <th>#{car.name}</th>
@@ -92,7 +132,7 @@ File.open('trolleybus.html', 'w') do |file|
   end
   file.write <<~STRING
     <tr>
-      <th colspan="4">Summary Engine Count is: #{Trolleybus.summary_engine_count} times</th>
+      <th colspan="4">Summary Engine Count is: #{DumpTrucks.summary_engine_count} times</th>
     </tr>
   STRING
   file.write(footer)
