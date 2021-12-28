@@ -7,6 +7,15 @@ class Mashine
     @step = 0
     @name = name
     @acc = Accum.new
+    @num = Numberizer.number
+  end
+
+  def name
+    @name
+  end
+
+  def number
+    @num
   end
 
   def starting
