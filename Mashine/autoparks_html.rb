@@ -44,7 +44,7 @@ dumptrucks = []
 exavators = []
 autobuses = []
 trolleybuses = []
-array = []
+
 arr = %w[starting go_ahead left right braking]
 
 File.open('autoparks.html', 'w') do |file|
@@ -52,6 +52,18 @@ File.open('autoparks.html', 'w') do |file|
   100.times do
     electro = ElectroCar.new(Mashinizer.mashine_name)
     elcars.append(electro)
+    diesel = DieselCar.new(Mashinizer.mashine_name)
+    discars.append(diesel)
+    gasoline = GasolinCar.new(Mashinizer.mashine_name)
+    gascars.append(gasoline)
+    exavator = Exavator.new(Mashinizer.mashine_name)
+    exavators.append(exavator)
+    dump = DumpTrucks.new(Mashinizer.mashine_name)
+    dumptrucks.append(dump)
+    bus = Autobus.new(Mashinizer.mashine_name)
+    autobuses.append(bus)
+    troll = Trolleybus.new(Mashinizer.mashine_name)
+    trolleybuses.append(troll)
   end
   file.write <<~STRING
     <tr>
@@ -66,10 +78,10 @@ File.open('autoparks.html', 'w') do |file|
     end
     file.write <<~STRING
       <tr>
-        <th>#{car.name}</th>
-        <th>#{car.number}</th>
-        <th>#{car.accum}%</th>
-        <th>#{car.engine_count}</th>
+      <th>#{car.name}</th>
+      <th>#{car.number}</th>
+      <th>#{car.accum}%</th>
+      <th>#{car.engine_count}</th>
       </tr>
     STRING
   end
@@ -78,10 +90,6 @@ File.open('autoparks.html', 'w') do |file|
       <th colspan="4">Summary Engine Count is :#{ElectroCar.summary_engine_count} times</th>
     </tr>
   STRING
-  100.times do
-    diesel = DieselCar.new(Mashinizer.mashine_name)
-    discars.append(diesel)
-  end
   file.write <<~STRING
     <tr>
       <th colspan="4">DIESELCARS</th>
@@ -107,10 +115,6 @@ File.open('autoparks.html', 'w') do |file|
       <th colspan="4">Summary Engine Count is :#{DieselCar.summary_engine_count} times</th>
     </tr>
   STRING
-  100.times do
-    gasoline = GasolinCar.new(Mashinizer.mashine_name)
-    gascars.append(gasoline)
-  end
   file.write <<~STRING
     <tr>
       <th colspan="4">GASOLINECARS</th>
@@ -136,10 +140,6 @@ File.open('autoparks.html', 'w') do |file|
       <th colspan="4">Summary Engine Count is :#{GasolinCar.summary_engine_count} times</th>
     </tr>
   STRING
-  100.times do
-    dump = DumpTrucks.new(Mashinizer.mashine_name)
-    dumptrucks.append(dump)
-  end
   file.write <<~STRING
     <tr>
       <th colspan="4">DUMPTRUCKS</th>
@@ -165,10 +165,6 @@ File.open('autoparks.html', 'w') do |file|
       <th colspan="4">Summary Engine Count is :#{DumpTrucks.summary_engine_count} times</th>
     </tr>
   STRING
-  100.times do
-    exavator = Exavator.new(Mashinizer.mashine_name)
-    exavators.append(exavator)
-  end
   file.write <<~STRING
     <tr>
       <th colspan="4">EXAVATORS</th>
@@ -194,10 +190,6 @@ File.open('autoparks.html', 'w') do |file|
       <th colspan="4">Summary Engine Count is :#{Exavator.summary_engine_count} times</th>
     </tr>
   STRING
-  100.times do
-    bus = Autobus.new(Mashinizer.mashine_name)
-    autobuses.append(bus)
-  end
   file.write <<~STRING
     <tr>
       <th colspan="4">AUTOBUSES</th>
@@ -223,10 +215,6 @@ File.open('autoparks.html', 'w') do |file|
       <th colspan="4">Summary Engine Count is :#{Autobus.summary_engine_count} times</th>
     </tr>
   STRING
-  100.times do
-    troll = Trolleybus.new(Mashinizer.mashine_name)
-    trolleybuses.append(troll)
-  end
   file.write <<~STRING
     <tr>
       <th colspan="4">TROLLEYBUSES</th>
